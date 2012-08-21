@@ -11,7 +11,7 @@ xmltv:
 	cd bin; time ./run.sh xmltv.js ../x.xml
 
 record-pendings:
-	time bin/run.sh -opt -1 bin/pending.js
+	cd bin; time ./run.sh -opt -1 ./pending.js
 
 deploy-mythtv:
 	mythfilldatabase --file 3 ./x.xml

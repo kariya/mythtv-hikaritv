@@ -1,4 +1,4 @@
-load('./record.js');
+load('../bin/record.js');
 
 importPackage(org.jmythapi.protocol);
 importPackage(org.jmythapi.protocol.response);
