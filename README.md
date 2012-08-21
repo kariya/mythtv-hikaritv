@@ -1,33 +1,33 @@
 mythtv-hikaritv
 ===============
 
-# supporting tools of mythtv for hikaritv subscribers / ‚Ğ‚©‚èTVŒ_–ñÒŒü‚¯MythTVƒTƒ|[ƒgƒc[ƒ‹
+# supporting tools of mythtv for hikaritv subscribers / ã²ã‹ã‚ŠTVå¥‘ç´„è€…å‘ã‘MythTVã‚µãƒãƒ¼ãƒˆãƒ„ãƒ¼ãƒ«
 
-## Requirements / •K—v‚È‚à‚Ì
+## Requirements / å¿…è¦ãªã‚‚ã®
 1. Java6 JRE
-2. MythTV (if you just like to try generating xmltv files, mythtv is not required. / ’P‚ÉXMLTVƒtƒ@ƒCƒ‹¶¬‚ğ‚µ‚Ä‚İ‚½‚¢‚¾‚¯‚È‚ç•K{‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)
+2. MythTV (if you just like to try generating xmltv files, mythtv is not required. / å˜ã«XMLTVãƒ•ã‚¡ã‚¤ãƒ«ç”Ÿæˆã‚’ã—ã¦ã¿ãŸã„ã ã‘ãªã‚‰å¿…é ˆã§ã¯ã‚ã‚Šã¾ã›ã‚“)
 
-## Basic Usage (Generating XMLTV files) / Šî–{“I‚Èg‚¢•û(XMLTVƒtƒ@ƒCƒ‹‚Ìì¬j
-1. Clone the repo as follows: / Ÿ‚Ì‚æ‚¤‚É‚µ‚ÄƒŠƒ|ƒWƒgƒŠ‚ğ•¡»‚µ‚Ü‚·B
+## Basic Usage (Generating XMLTV files) / åŸºæœ¬çš„ãªä½¿ã„æ–¹(XMLTVãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆï¼‰
+1. Clone the repo as follows: / æ¬¡ã®ã‚ˆã†ã«ã—ã¦ãƒªãƒã‚¸ãƒˆãƒªã‚’è¤‡è£½ã—ã¾ã™ã€‚
 	git clone https://github.com/kariya/mythtv-hikaritv.git
-2. Confirm the requirements. / •K—v‚È•¨‚ª‘µ‚Á‚Ä‚¢‚é‚©Šm‚©‚ß‚Ü‚·B
-3. Type the following command / Ÿ‚ÌƒRƒ}ƒ“ƒh‚ğ‘Å‚Á‚Ä‚­‚¾‚³‚¢
+2. Confirm the requirements. / å¿…è¦ãªç‰©ãŒæƒã£ã¦ã„ã‚‹ã‹ç¢ºã‹ã‚ã¾ã™ã€‚
+3. Type the following command / æ¬¡ã®ã‚³ãƒãƒ³ãƒ‰ã‚’æ‰“ã£ã¦ãã ã•ã„
 	make xmltv
-4. Now you've got your own xmltv file / ‚±‚ê‚Å‚ ‚È‚½©g‚ÌXMLTVƒtƒ@ƒCƒ‹‚ª‚Å‚«‚½‚Í‚¸‚Å‚·
-   How to use this? See the next chapter. / g‚¢•û‚ÍŸÍ‚ğŒ©‚Ä‚­‚¾‚³‚¢B
+4. Now you've got your own xmltv file / ã“ã‚Œã§ã‚ãªãŸè‡ªèº«ã®XMLTVãƒ•ã‚¡ã‚¤ãƒ«ãŒã§ããŸã¯ãšã§ã™
+   How to use this? See the next chapter. / ä½¿ã„æ–¹ã¯æ¬¡ç« ã‚’è¦‹ã¦ãã ã•ã„ã€‚
 
 
-## Advanced Usage (with mythtv) / i‚ñ‚¾g‚¢•ûiMythTV•Òj
-1. If you'd like to deploy the xmltv file to mythtv, / XMLTVƒtƒ@ƒCƒ‹‚ğMythTV‚Éæ‚è‚İ‚½‚¢‚È‚ç
+## Advanced Usage (with mythtv) / é€²ã‚“ã ä½¿ã„æ–¹ï¼ˆMythTVç·¨ï¼‰
+1. If you'd like to deploy the xmltv file to mythtv, / XMLTVãƒ•ã‚¡ã‚¤ãƒ«ã‚’MythTVã«å–ã‚Šè¾¼ã¿ãŸã„ãªã‚‰
 	make -n deploy-mythtv
-	(remove -n option at your own risk AFTER you modified Makefile file / -nƒIƒvƒVƒ‡ƒ“‚ğ‚Í‚¸‚·‚Ì‚ÍMakefile‚ğ•ÒW‚µ‚Ä‚©‚ç‚É‚µ‚Ä‚­‚¾‚³‚¢j
-2. If you want to do schedule recordings, / —\–ñ˜^‰æ‚ª‚µ‚½‚¢‚È‚çA
+	(remove -n option at your own risk AFTER you modified Makefile file / -nã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ã¯ãšã™ã®ã¯Makefileã‚’ç·¨é›†ã—ã¦ã‹ã‚‰ã«ã—ã¦ãã ã•ã„ï¼‰
+2. If you want to do schedule recordings, / äºˆç´„éŒ²ç”»ãŒã—ãŸã„ãªã‚‰ã€
 	make record-pendings
-	This includes programs pending in 1-25 hours / ‚±‚ê‚Í‚P`‚Q‚TŠÔŒã‚Ì”Ô‘g‚ğŠÜ‚İ‚Ü‚·B
+	This includes programs pending in 1-25 hours / ã“ã‚Œã¯ï¼‘ï½ï¼’ï¼•æ™‚é–“å¾Œã®ç•ªçµ„ã‚’å«ã¿ã¾ã™ã€‚
 
 
-## Acknowledgement / Ó«
-I thank to the following userful program and so on ver much. / ˆÈ‰º‚Ì—L—p‚ÈƒvƒƒOƒ‰ƒ€Eî•ñ‚É[‚­Š´Ó‚µ‚Ü‚·B
+## Acknowledgements / è¬è¾
+I thank to the following userful program and so on ver much. / ä»¥ä¸‹ã®æœ‰ç”¨ãªãƒ—ãƒ­ã‚°ãƒ©ãƒ ãƒ»æƒ…å ±ã«æ·±ãæ„Ÿè¬ã—ã¾ã™ã€‚
 * Rhino
 * Env.js
 * JQuery
@@ -35,6 +35,4 @@ I thank to the following userful program and so on ver much. / ˆÈ‰º‚Ì—L—p‚Èƒvƒƒ
 * perl related stuff
 * wikipedia
 
-Why in English? Is HikariTV a Japanese service? -- Yes, it is not needed in fact, but I think it is important that the github admins can know what they host.
-/ ‚È‚º‰pŒêH‚Ğ‚©‚èTV‚Í“ú–{Œê‚ÌƒT[ƒrƒX‚¶‚á‚È‚¢‚ÌH -- ‚Í‚¢A•s—v‚Æ‚Ív‚¢‚Ü‚·‚ªAgithubŠÇ—Ò‚ª”Ş‚ç‚ª‰½‚ğƒzƒXƒg‚µ‚Ä‚¢‚é‚©‚ğ’m‚ê‚é‚æ‚¤‚É‚·‚é‚½‚ß‚É‚»‚¤‚µ‚Ü‚µ‚½B
 
