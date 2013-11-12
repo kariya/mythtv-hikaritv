@@ -39,4 +39,4 @@ I thank to the following userful program and so on ver much. / 以下の有用�
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kariya/mythtv-hikaritv/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+<img src="https://git.kariya.cc/myBadge2.png"/>
