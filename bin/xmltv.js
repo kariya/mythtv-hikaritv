@@ -35,13 +35,19 @@ function getCrid(job) {
 	var href = org.jsoup.Jsoup.parse(job).select('a').first().attr('href');
 	return href.replaceAll("^.*crid%3D", '').replaceAll("\.html", '');
 }
+function make_prog_url(title) {
+	var url = 'http://www.hikaritv.net/search/tv/request/tv_program.frm?genreId=&word=' 
+		+ java.net.URLEncoder.encode(title.trim(), "Windows-31J")
+		+ '&searchType=title&x=0&y=0&timeMorning=0&timeDay=0&timeEvening=0&hv=0&parental=17&ispId=001&range=20&sort=PERIOD_START_AVAILABILITY_ASC&matchType=pm';
+	return url;
+}
 
 function getXMLElem(job, ch) {
 	var url = getURL(job);
-	var d = org.jsoup.Jsoup.connect(url).get();
+	var d = org.jsoup.Jsoup.connect(url).timeout(2 * 60 * 1000).get();
 	var crid = getCrid(job);
 
-	var title = String(d.select('.h2C02 h2:eq(0)').text().toString().replaceAll("...$", ''));
+	var title = String(d.select('.h2C02 h2:eq(0)').text().toString().replaceAll("...$", '').trim());
 	var time = d.select('.mainBox_left > p:eq(6) > strong').text();
 	var channel = d.select('.mainBox_rightin > p:eq(1)').text().replaceAll("^[^0-9]*", '').replaceAll("[^0-9]*$", '');
 	var category = d.select('.mainBox_left>p:eq(4)>a').text();
@@ -118,7 +124,6 @@ function getXMLElem(job, ch) {
 		title = xs.join('#') + suffix;
 	}
 	
-
 	var elem = new XML(
 		'<programme start="' + start + '" stop="' + stop + '" channel="' + ch + '.hikaritv.net">'
 			+ '<title lang="ja">' + escapeHTML(title) + '</title>'
@@ -131,6 +136,7 @@ function getXMLElem(job, ch) {
 			+ (previously_show ? '<previously-shown/>' : '')
 			+ (is_new ? '<new/>' : '')
 			+ (is_teletext ? '<subtitles type="teletext"/>': '')
+			+ '<url><![CDATA[' + make_prog_url(title) + ']]></url>'
 		+ '</programme>');
 
 	return elem;
@@ -175,7 +181,9 @@ function getEpisodeNum(num) {
 	return '<episode-num system="onscreen">' + num + '</episode-num>';
 }
 
-var channels = ['350','351','352','380','821','450','451','452','453','455','456'];
+//var channels = ['350','351','352','380','450','451','452','453','455', '832'];
+var channels = ['101', '102', '103', '150', '151', '152', '153', '180', '258', '380', '251', '252', '253', '260', '261', '350', '351', '352', '550', '353', '450', '451', '452', '453', '455', '460', '461', '552', '553', '551', '556', '740', '558', '554', '555', '559', '470', '471', '650', '651', '653', '655', '741', '750', '751', '752', '754', '860', '861', '811', '812', '832', '831'];
+//var channels = ['380'];
 var channelList = [];
 var programmeList = [];
 
@@ -185,7 +193,7 @@ for (var i = 0; i < channels.length; ++i) {
 
 	var doc = null;
 	try {
-		doc = org.jsoup.Jsoup.connect(url).timeout(60*1000).get();
+		doc = org.jsoup.Jsoup.connect(url).timeout(4*60*1000).get();
 	} catch (e) {
 		if (e.javaException instanceof java.net.SocketTimeoutException) {
 			print("timeout. skip this channel.");
